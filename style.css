@@ -1,0 +1,34 @@
+.checked {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.close {
+    cursor: pointer;
+}
+
+#addBtn {
+    cursor: pointer;
+    border: 1px solid;
+    padding: 1px 3px;
+    border-radius: 5px;
+}
+
+#input {
+    padding: 1px 3px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.header {
+    display: flex;
+    gap: 10px;
+}
+
+#itemList {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    padding: 5px 30px;
+    border-radius: 5px;
+}
