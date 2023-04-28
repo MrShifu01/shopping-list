@@ -1,9 +1,11 @@
-@property --gradient-angle {
+/* Creating a custom property */
+@property --gradient {
     syntax: "<angle>";
-    initial-value: 0deg;
+    initial-value: 90deg;
     inherits: false;
 }
 
+/* Declaring some colors up front */
 :root {
     --clr-1: #05425c;
     --clr-2: #073438;
@@ -12,6 +14,7 @@
     --clr-5: #47b39d;
 }
 
+/* Styling the Body */
 body {
     background-color: var(--clr-2);
     height: 100vh;
@@ -21,12 +24,14 @@ body {
     color: var(--clr-4);
 }
 
+/* Styling the main heading h2 */
 h2 {
     text-align: center;
     padding: 30px 0;
     font-style: italic;
 }
 
+/* Styling the main container */
 .container {
     aspect-ratio: 1 /1.5;
     background-color: var(--clr-1);
@@ -35,6 +40,7 @@ h2 {
     position: relative;
 }
 
+/* Styling the border and animation of the main container */
 .container::before,
 .container::after {
     content: "";
@@ -42,39 +48,45 @@ h2 {
     inset: -.2rem;
     z-index: -1;
     background: linear-gradient(
-        var(--gradient-angle),
+        var(--gradient),
         var(--clr-3),
         var(--clr-4),
         var(--clr-5)
     );
     border-radius: inherit;
-    animation: rotation 10s linear infinite;
+    animation: rotation 15s linear infinite;
 }
 
+/* Creating the glow behind the main container */
 .container::after {
     filter: blur(3.5rem);
 }
 
+/* Using the custom property to create rotation of the gradient */
 @keyframes rotation {
-    0% {--gradient-angle: 0deg;}
-    100% {--gradient-angle: 100deg;}
+    0% {--gradient: 0deg;}
+    100% {--gradient: 100deg;}
 }
 
+/* Styling the checking function of items off the checklist */
 .checked {
     text-decoration: line-through;
     color: var(--clr-3);
 }
 
+/* Adding a cursor pointer to the x's */
 .close {
     cursor: pointer;
 }
 
+/* Styling the list items */
 li {
     display: flex;
     justify-content: space-between;
     cursor: pointer;
 }
 
+/* Styling the add button */
 #addBtn {
     cursor: pointer;
     border: 2px solid;
@@ -83,17 +95,20 @@ li {
     
 }
 
+/* Styling the input bar */
 #input {
     padding: 1px 5px;
     border: 2px solid var(--clr-4);
     border-radius: 5px;
 }
 
+/* Styling the header */
 .header {
     display: flex;
     gap: 10px;
 }
 
+/* Styling the list box */
 #itemList {
     display: flex;
     flex-direction: column;
