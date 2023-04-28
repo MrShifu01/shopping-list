@@ -1,22 +1,91 @@
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+:root {
+    --clr-1: #05425c;
+    --clr-2: #073438;
+    --clr-3: #eb6b56;
+    --clr-4: #ffc153;
+    --clr-5: #47b39d;
+}
+
+body {
+    background-color: var(--clr-2);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--clr-4);
+}
+
+h2 {
+    text-align: center;
+    padding: 30px 0;
+    font-style: italic;
+}
+
+.container {
+    aspect-ratio: 1 /1.5;
+    background-color: var(--clr-1);
+    border-radius: 8px;
+    padding: 30px 30px;
+    position: relative;
+}
+
+.container::before,
+.container::after {
+    content: "";
+    position: absolute;
+    inset: -.2rem;
+    z-index: -1;
+    background: linear-gradient(
+        var(--gradient-angle),
+        var(--clr-3),
+        var(--clr-4),
+        var(--clr-5)
+    );
+    border-radius: inherit;
+    animation: rotation 10s linear infinite;
+}
+
+.container::after {
+    filter: blur(3.5rem);
+}
+
+@keyframes rotation {
+    0% {--gradient-angle: 0deg;}
+    100% {--gradient-angle: 100deg;}
+}
+
 .checked {
     text-decoration: line-through;
-    color: #888;
+    color: var(--clr-3);
 }
 
 .close {
     cursor: pointer;
 }
 
+li {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
 #addBtn {
     cursor: pointer;
-    border: 1px solid;
-    padding: 1px 3px;
+    border: 2px solid;
+    padding: 1px 5px;
     border-radius: 5px;
+    
 }
 
 #input {
-    padding: 1px 3px;
-    border: 1px solid;
+    padding: 1px 5px;
+    border: 2px solid var(--clr-4);
     border-radius: 5px;
 }
 
@@ -28,7 +97,8 @@
 #itemList {
     display: flex;
     flex-direction: column;
+    gap: 10px;
     border: 1px solid;
-    padding: 5px 30px;
+    padding: 10px 30px;
     border-radius: 5px;
 }
