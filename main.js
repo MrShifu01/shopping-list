@@ -43,6 +43,16 @@ itemList.addEventListener('click', function (event) {
     }
 })
 
+const inputEnter = document.getElementById('input')
+
+inputEnter.addEventListener('keyup', function (event) {
+    
+    if (event.keyCode === 13) {
+        const addbutton = document.getElementById('addBtn')
+        addbutton.click()
+    }
+} )
+
 
 
 // // Function to change the styling of items that have been bought already
